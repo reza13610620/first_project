@@ -2,21 +2,13 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# آدرس دیتابیس (برای تست sqlite استفاده می‌کنیم)
-DATABASE_URL = "sqlite:///./test.db"
+# تغییر اسم دیتابیس به "EcommerceDB"
+DATABASE_URL = "sqlite:///./EcommerceDB.db"
 
-# ساخت engine
-engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}
-)
-
-# ساخت Session
+engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-# ساخت Base برای مدل‌ها
 Base = declarative_base()
 
-# تابع برای ساخت سشن در صورت نیاز
 def get_db():
     db = SessionLocal()
     try:

@@ -1,8 +1,9 @@
-﻿fastapi==0.95.2
-uvicorn==0.22.0
-SQLAlchemy==2.0.36
-pydantic==1.10.11
-python-dotenv==1.0.0
-passlib[bcrypt]==1.7.4
-python-jose[cryptography]==3.3.0
-python-dateutil==2.8.2
+﻿fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+passlib[bcrypt]
+jdatetime
+celery
+redis
+num2fa
