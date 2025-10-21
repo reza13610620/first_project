@@ -1,14 +1,109 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پلتفرم استعلام کالا</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../src/styles/output.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعریف کالا</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        select, input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="../src/index.js"></script>
+    <h1>تعریف کالا</h1>
+    <form id="productForm">
+        <div class="form-group">
+            <label for="mainCategory">دسته‌بندی اصلی:</label>
+            <select id="mainCategory" name="mainCategory" required>
+                <option value="">انتخاب کنید...</option>
+                <option value="آجیل و خشکبار">آجیل و خشکبار</option>
+                <option value="میوه تازه">میوه تازه</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="subCategory">دسته‌بندی فرعی:</label>
+            <select id="subCategory" name="subCategory" required>
+                <option value="">انتخاب کنید...</option>
+                <option value="پسته">پسته</option>
+                <option value="بادام">بادام</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="productName">نام کالا:</label>
+            <input type="text" id="productName" name="productName" placeholder="مثلاً پسته اکبری خشک" required>
+        </div>
+        <div class="form-group">
+            <label for="unit">واحد اندازه‌گیری:</label>
+            <select id="unit" name="unit" required>
+                <option value="">انتخاب کنید...</option>
+                <option value="کیلوگرم">کیلوگرم</option>
+                <option value="عدد">عدد</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="specialFeature">ویژگی خاص (مثلاً انس):</label>
+            <input type="text" id="specialFeature" name="specialFeature" placeholder="مثلاً انس 18">
+        </div>
+        <div class="form-group">
+            <label for="subGroup">نوع زیرگروه کالا:</label>
+            <select id="subGroup" name="subGroup" required>
+                <option value="">انتخاب کنید...</option>
+                <option value="خشک">خشک</option>
+                <option value="نمکی">نمکی</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">توضیحات کالا:</label>
+            <textarea id="description" name="description" rows="4" placeholder="جزئیات بیشتر را وارد کنید"></textarea>
+        </div>
+        <button type="submit">ثبت کالا</button>
+    </form>
+
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const product = {
+                mainCategory: document.getElementById('mainCategory').value,
+                subCategory: document.getElementById('subCategory').value,
+                productName: document.getElementById('productName').value,
+                unit: document.getElementById('unit').value,
+                specialFeature: document.getElementById('specialFeature').value,
+                subGroup: document.getElementById('subGroup').value,
+                description: document.getElementById('description').value
+            };
+            alert('کالا ثبت شد:\n' + JSON.stringify(product, null, 2));
+            this.reset(); // فرم رو پاک می‌کنه بعد از ثبت
+        });
+    </script>
 </body>
 </html>
