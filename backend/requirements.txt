@@ -1,0 +1,9 @@
+﻿fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+passlib[bcrypt]
+jdatetime
+celery
+redis
+num2fa

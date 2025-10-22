@@ -1,0 +1,23 @@
+{
+  "name": "ecommerce-mobile",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "react-native start --reset-cache"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-native": "0.73.2",
+    "axios": "^1.6.0",
+    "@react-navigation/native": "^6.0.0",
+    "@react-navigation/stack": "^6.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
+    "metro-react-native-babel-preset": "^0.76.8"
+  }
+}
